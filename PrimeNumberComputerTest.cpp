@@ -12,17 +12,37 @@ using PrimeNumberComputer::UintPrime;
 TEST_CLASS(PrimeNumberComputerTest)
 {
 public:
-
+	// Evaluates if algorithm fails with an exception for n < 0.
 	TEST_METHOD(TestInvalidInputNegative);
+
+	// Evaluates if algorithm fails with an exception for n > MAX_N.
 	TEST_METHOD(TestInvalidInputTooLarge);
+
+	// Evaluates if algorithm delivers an empty list for n = 0.
 	TEST_METHOD(TestValidInputZero);
+
+	// Evaluates if algorithm works correctly for n = 1.
 	TEST_METHOD(TestValidInputSmall1);
+
+	// Evaluates if algorithm works correctly for n = 5.
 	TEST_METHOD(TestValidInputSmall2);
+
+	// Evaluates if algorithm works correctly for n = 10.
 	TEST_METHOD(TestValidInputSmall3);
+
+	// Evaluates if algorithm works correctly for n = 1'000.
 	TEST_METHOD(TestValidInputLarge1);
+
+	// Evaluates if algorithm works correctly for n = 10'000.
 	TEST_METHOD(TestValidInputLarge2);
+
+	// Evaluates if algorithm works correctly for n = 100'000.
 	TEST_METHOD(TestValidInputLarge3);
+
+	// Evaluates if algorithm works correctly for n = 1'000'000.
 	TEST_METHOD(TestValidInputLarge4);
+
+	// Evaluates if algorithm works correctly for n = 10'000'000.
 	TEST_METHOD(TestValidInputLarge5);
 };
 
@@ -87,7 +107,7 @@ void PrimeNumberComputerTest::TestValidInputSmall1()
 {
 	// Define input and expected output.
 	constexpr UintPrime n = 1;
-	const vector<UintPrime> expectedOutput = {2};
+	const vector<UintPrime> expectedOutput = { 2 };
 
 	// Run the targeted function.
 	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
@@ -101,7 +121,7 @@ void PrimeNumberComputerTest::TestValidInputSmall2()
 {
 	// Define input and expected output.
 	constexpr UintPrime n = 5;
-	const vector<UintPrime> expectedOutput = {2, 3, 5, 7, 11};
+	const vector<UintPrime> expectedOutput = { 2, 3, 5, 7, 11 };
 
 	// Run the targeted function.
 	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
@@ -115,7 +135,7 @@ void PrimeNumberComputerTest::TestValidInputSmall3()
 {
 	// Define input and expected output.
 	constexpr UintPrime n = 10;
-	const vector<UintPrime> expectedOutput = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
+	const vector<UintPrime> expectedOutput = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 };
 
 	// Run the targeted function.
 	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
@@ -146,7 +166,7 @@ void PrimeNumberComputerTest::TestValidInputLarge1()
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
-	for (const auto &entry : expectedOutput)
+	for (const auto& entry : expectedOutput)
 	{
 		Assert::AreEqual(entry.second, actualOutput[entry.first - 1]);
 	}
