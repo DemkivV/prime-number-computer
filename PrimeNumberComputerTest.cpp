@@ -60,7 +60,7 @@ void PrimeNumberComputerTest::TestInvalidInputNegative()
 	bool isFailed = false;
 	try
 	{
-		PrimeNumberComputer::ComputePrimeNumbers(n);
+		PrimeNumberComputer::Compute(n);
 	}
 	catch (const std::invalid_argument&)
 	{
@@ -80,7 +80,7 @@ void PrimeNumberComputerTest::TestInvalidInputTooLarge()
 	bool isFailed = false;
 	try
 	{
-		PrimeNumberComputer::ComputePrimeNumbers(n);
+		PrimeNumberComputer::Compute(n);
 	}
 	catch (const std::invalid_argument&)
 	{
@@ -96,7 +96,7 @@ void PrimeNumberComputerTest::TestValidInputZero()
 	const vector<UintPrime> expectedOutput = {};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -110,7 +110,7 @@ void PrimeNumberComputerTest::TestValidInputSmall1()
 	const vector<UintPrime> expectedOutput = { 2 };
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -124,7 +124,7 @@ void PrimeNumberComputerTest::TestValidInputSmall2()
 	const vector<UintPrime> expectedOutput = { 2, 3, 5, 7, 11 };
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -138,7 +138,7 @@ void PrimeNumberComputerTest::TestValidInputSmall3()
 	const vector<UintPrime> expectedOutput = { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 };
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -162,7 +162,7 @@ void PrimeNumberComputerTest::TestValidInputLarge1()
 	};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -186,7 +186,7 @@ void PrimeNumberComputerTest::TestValidInputLarge2()
 	};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -211,7 +211,7 @@ void PrimeNumberComputerTest::TestValidInputLarge3()
 	};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -237,7 +237,7 @@ void PrimeNumberComputerTest::TestValidInputLarge4()
 	};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());
@@ -265,7 +265,7 @@ void PrimeNumberComputerTest::TestValidInputLarge5()
 	};
 
 	// Run the targeted function.
-	const auto actualOutput = PrimeNumberComputer::ComputePrimeNumbers(n);
+	const auto actualOutput = PrimeNumberComputer::Compute(n);
 
 	// Check the results.
 	Assert::IsTrue(n == actualOutput.size());

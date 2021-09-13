@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <limits>
 
 using std::vector;
 
@@ -41,6 +42,6 @@ namespace PrimeNumberComputer {
 	 * Runtime complexity: O(n^2)
 	 *  Memory complexity: O(n)
 	 */
-	vector<UintPrime> ComputePrimeNumbers(UintPrime n);
+	vector<UintPrime> Compute(UintPrime n);
 
 }

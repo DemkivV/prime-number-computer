@@ -1,14 +1,13 @@
 #include "pch.h"
 #include "PrimeNumberComputer.h"
 
-#include <limits>
 #include <stdexcept>
 #include <string>
 
 using PrimeNumberComputer::UintPrime;
 
 
-vector<UintPrime> PrimeNumberComputer::ComputePrimeNumbers(const UintPrime n)
+vector<UintPrime> PrimeNumberComputer::Compute(const UintPrime n)
 {
 	// Check for valid input parameters.
 	if (n > MAX_N)
@@ -34,8 +33,7 @@ vector<UintPrime> PrimeNumberComputer::ComputePrimeNumbers(const UintPrime n)
 	// Parse through all odd numbers and check for divisibility with previously
 	// found prime numbers.
 	bool isDivisible = false;
-	for (auto currentNumber = decltype(n){3}; results.size() < n;
-		currentNumber += 2)
+	for (UintPrime currentNumber = 3; results.size() < n; currentNumber += 2)
 	{
 		// Check if currentNumber is a prime number.
 		// Skip the first prime number (2), since only odd numbers are checked.
