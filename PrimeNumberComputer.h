@@ -7,34 +7,36 @@ using std::vector;
 namespace PrimeNumberComputer {
 
 	/**
-	 * Defines the data type to limit both, the parameter n and the range where
-	 * prime numbers can be found. Can be changed here centrally and will
-	 * automatically adjust the upper limit for n (MAX_N) and the value range
-	 * for prime numbers.
+	 * Defines the data type to save prime numbers with. Since the parameter n
+	 * is only a few orders of magnitude smaller, it uses the same data type.
+	 * Can be changed centrally here and automatically adjusts the upper limit
+	 * limit for n (MAX_N) and the value range for prime numbers.
 	 */
 	typedef uint_fast64_t UintPrime;
 
 	/**
-	 * Defines the maximum allowed value for n in ComputePrimeNumbers().
+	 * Defines the maximum allowed value for the parameter n. The main objective
+	 * of this limit is not to exhaust the range of the data type UintPrime,
+	 * otherwise fewer prime numbers would be delivered than requested.
+	 *
 	 * Note: Value is currently approximated, since it's computationally
-	 * extremely intensive to compute so many prime numbers.
+	 * extremely intensive to compute as many prime numbers.
 	 * Web tools like https://primes.utm.edu/nthprime/index.php#nth
 	 * can be helpful, but are limited, in that case to MAX_N = 10^12.
-	 * For various large values, the indices corresponding to a certain prime
-	 * number are of the same order of magnitude or 1 lower. If checking for
-	 * the maximum accessible prime number on the previously mentioned website,
-	 * this assumption is confirmed. To be more conservative, another 2 orders
-	 * of magnitude are subtracted, for a total of 3. If it's too conservative,
-	 * for a new UintPrime, try to remove 1–2 orders of magnitude.
+	 * For various checked (large) values in that range, the indices
+	 * corresponding to a certain prime number are of the same order of
+	 * magnitude or 1 lower. Thus, MAX_N should be at least 1 order of magnitude
+	 * lower. To be more conservative, another 2 orders of magnitude are
+	 * subtracted, for a total of 3.
 	 */
 	constexpr UintPrime MAX_N = std::numeric_limits<UintPrime>::max() / 1'000;
 
 	/**
-	 * Computes a given amount of prime numbers, starting with 2.
+	 * Computes a specified amount of prime numbers.
+	 *
+	 * n: number of prime numbers to be computed.
 	 *
 	 * Requirements: 0 <= n <= MAX_N
-	 * n is limited at the upper end because that's the highest prime number
-	 * fitting into the supported data type.
 	 *
 	 * Runtime complexity: O(n^2)
 	 *  Memory complexity: O(n)
