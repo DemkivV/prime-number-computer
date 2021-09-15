@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "PrimeNumberComputer.h"
 
+#include <cmath>
 #include <stdexcept>
 #include <string>
 
@@ -40,16 +41,16 @@ vector<UintPrime> PrimeNumberComputer::Compute(const UintPrime n)
 		// Check only against prime numbers, since this is sufficient.
 		for (auto it = ++results.begin(); it != results.end(); ++it)
 		{
-			const auto& currentPrimeNumber = *it;
+			const auto& currentPrime = *it;
 			// Quit if checked prime number is larger than square root.
 			// See: https://stackoverflow.com/a/5811176
-			if (currentPrimeNumber * currentPrimeNumber > currentNumber)
+			if (currentPrime > static_cast<UintPrime>(std::sqrt(currentNumber)))
 			{
 				break;
 			}
 
 			// Check if current number is divisible by this prime number.
-			if (currentNumber % currentPrimeNumber == 0)
+			if (currentNumber % currentPrime == 0)
 			{
 				isDivisible = true;
 				break;
